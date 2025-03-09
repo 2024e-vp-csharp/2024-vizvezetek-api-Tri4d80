@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Models/Hely.cs
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Vizvezetek.API.Models;
 
-public partial class hely
+public partial class Hely
 {
     [Key]
     [Column(TypeName = "int(11)")]
@@ -19,5 +20,5 @@ public partial class hely
     public string utca { get; set; } = null!;
 
     [InverseProperty("hely")]
-    public virtual ICollection<munkalap> munkalap { get; set; } = new List<munkalap>();
+    public virtual ICollection<Munkalap> munkalap { get; set; } = new List<Munkalap>();
 }

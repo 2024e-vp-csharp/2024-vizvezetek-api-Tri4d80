@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Models/VizvezetekContext.cs
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
@@ -16,11 +17,11 @@ public partial class vizvezetekContext : DbContext
     {
     }
 
-    public virtual DbSet<hely> hely { get; set; }
+    public virtual DbSet<Hely> hely { get; set; }
 
-    public virtual DbSet<munkalap> munkalap { get; set; }
+    public virtual DbSet<Munkalap> munkalap { get; set; }
 
-    public virtual DbSet<szerelo> szerelo { get; set; }
+    public virtual DbSet<Szerelo> szerelo { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -40,12 +41,12 @@ public partial class vizvezetekContext : DbContext
             .UseCollation("utf8mb4_general_ci")
             .HasCharSet("utf8mb4");
 
-        modelBuilder.Entity<hely>(entity =>
+        modelBuilder.Entity<Hely>(entity =>
         {
             entity.HasKey(e => e.id).HasName("PRIMARY");
         });
 
-        modelBuilder.Entity<munkalap>(entity =>
+        modelBuilder.Entity<Munkalap>(entity =>
         {
             entity.HasKey(e => e.id).HasName("PRIMARY");
 
@@ -58,7 +59,7 @@ public partial class vizvezetekContext : DbContext
                 .HasConstraintName("munkalap_ibfk_2");
         });
 
-        modelBuilder.Entity<szerelo>(entity =>
+        modelBuilder.Entity<Szerelo>(entity =>
         {
             entity.HasKey(e => e.id).HasName("PRIMARY");
 

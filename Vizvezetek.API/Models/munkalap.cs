@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Models/Munkalap.cs
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ namespace Vizvezetek.API.Models;
 
 [Index("hely_id", Name = "hely_id")]
 [Index("szerelo_id", Name = "szerelo_id")]
-public partial class munkalap
+public partial class Munkalap
 {
     [Key]
     [Column(TypeName = "int(11)")]
@@ -32,9 +33,9 @@ public partial class munkalap
 
     [ForeignKey("hely_id")]
     [InverseProperty("munkalap")]
-    public virtual hely hely { get; set; } = null!;
+    public virtual Hely hely { get; set; } = null!;
 
     [ForeignKey("szerelo_id")]
     [InverseProperty("munkalap")]
-    public virtual szerelo szerelo { get; set; } = null!;
+    public virtual Szerelo szerelo { get; set; } = null!;
 }
